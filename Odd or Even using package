@@ -1,0 +1,42 @@
+// Class
+import pack.Even;
+import java.util.Scanner;
+public class EvenChecker 
+{
+  public static void main(String[] args) 
+	{
+		Even e=new Even();
+		int res;
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter Your Number : ");
+		res=in.nextInt();
+		
+		if(res==1)
+		 {
+			System.out.println("Number is Odd");
+		 }
+		else
+		 {
+			System.out.println("Number is even");
+		 }
+	}
+}
+
+
+//Package
+package pack;
+
+public class Even 
+{
+	int flag=1;
+	public int evenCheck(int n)
+	 {
+		if(n%2==0)
+		{
+			flag=0;
+		}
+		return(flag);
+	 }
+
+}
