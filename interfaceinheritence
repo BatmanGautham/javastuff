@@ -1,0 +1,54 @@
+class Shapes
+{
+ //int length,breadth;
+ void display()
+ {
+  System.out.println("Current Class is Shapes");
+ }
+}
+interface Area
+{
+ float r=0.5f;
+ float FindArea(int l,int b);
+}
+
+class Rectangle extends Shapes implements Area
+{
+ public float FindArea(int length,int breadth)
+  {
+   return(length*breadth);
+  }
+}
+
+class Triangle extends Shapes implements Area
+{
+ public float FindArea(int length,int breadth)
+ {
+  return(r*length*breadth);
+ }
+}
+
+
+class InterfaceInheritence
+{
+ public static void main(String[] args)
+  {
+   Rectangle obj = new Rectangle();
+   
+   obj.display("Rectangle");
+   
+   float result1;
+   
+   result=obj.FindArea(10,40);
+   
+   System.out.println("Area of Rectangle is : "+result1);
+   
+   Triangle obj2=new Triangle();
+   
+   obj2.display();
+   
+   float result2;
+   
+   System.out.println("Area of Triangle is : "+result2);
+  }
+}
