@@ -71,7 +71,7 @@ public class BuiltinExceptionUsage
 		    			System.out.print(Array[i]+" ");
 		    	 	  } 
 		    		
-		    		System.out.println("Enter the position of elements to be accessed : ");
+		    		System.out.println("\nEnter the position of elements to be accessed : ");
 		    		
 		    		index = in.nextInt();
 		    		
