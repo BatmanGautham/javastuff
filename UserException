@@ -1,0 +1,116 @@
+import java.util.Scanner;
+
+public class ShowExceptionhandlings 
+{
+	public static void main(String[] args) 
+	{
+		int choice; 
+		
+		int Quotient,Numerator,Denominator; // case 1
+		
+	    int Array[],size; //case 2
+	    
+	    String Data = null; //case 3
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Choose Exception 1.Arithmetic, 2.Array Out of Bond, 3.Null Pointer Exception");
+		
+		choice = in.nextInt();
+		
+		  switch(choice)
+		  {
+		   case 1 : 
+			   
+			   try
+			    {
+			     System.out.println("Quotient = Numerator / Denomianator  ");
+			   
+		     
+			     System.out.println("Enter the numerator :  ");
+			     
+			     Numerator=in.nextInt();
+			     
+			     System.out.println("Let Denominator be 0");
+			    
+			     Denominator = 0;
+			    
+			     Quotient = Numerator / Denominator;
+			    }
+			   catch(ArithmeticException e)
+			    {
+				  System.out.println(e);
+			    }
+			   finally
+			    {
+				     System.out.println("Quotient = Numerator / Denomianator  ");
+					   
+				     System.out.println("Enter the numerator :  ");
+				     
+				     Numerator = in.nextInt();
+				     
+				     System.out.println("Enter the denominator but not zero :  ");
+				    
+				     Denominator = in.nextInt();
+				     
+				      if (Denominator == 0)
+				      {
+				    	 System.out.println("Enter the denominator but not zero :  ");
+						    
+					     Denominator = in.nextInt();
+				      }
+				      
+				     Quotient = Numerator / Denominator;
+				     
+				     System.out.println(" Quotient is :  "+Quotient);
+				     
+				     System.out.println("This Program is free from errors");
+			    }
+			   break;
+			   
+			
+		   case 2 : 
+		    	
+		    	try
+		     	 {
+		     		
+		    		System.out.println("Enter Array size : ");
+		    		size=in.nextInt();
+		    		
+		    		Array = new int[size];
+		    		
+		    		System.out.println("Enter Your number into Array["+size+1+"] :");
+		    		Array[size+1]=in.nextInt();
+		    		 
+		    	}
+		       catch(ArrayIndexOutOfBoundsException e) 
+	     		 {
+	    			System.out.println(e);
+	     		 }
+		    	finally 
+		    	 {
+		    			System.out.println("Exception is cleared");
+		       	 }
+		    	break;
+		    	
+		    	
+		   case 3 :
+			    
+			     try
+			     {
+			    	 int sizeofstring = name.length();
+			    	 
+	    		     System.out.println("length is "+sizeofstring);
+			    	 System.out.println("String name = ");
+			     }
+			    
+			   
+		   
+		  }
+		
+		 
+		
+
+	}
+
+}
