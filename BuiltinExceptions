@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+public class BuiltinExceptionUsage
+{
+	public static void main(String[] args) 
+	{
+		int choice;
+		String response = "n";
+		
+		int Number_1,Number_2,res;// case 1
+		
+		int Array[],size,i,index;
+
+		 Scanner in=new Scanner(System.in);
+		 
+		 do 
+		 {
+		  System.out.println("Enter chocie \n\n 1. Arithmatic exception, 2. for Array out of bond exception");
+		  
+		  choice = in.nextInt();
+		  
+		  switch(choice) 
+		   {
+		    case 1 : 
+		    	try
+		    	 {
+		            System.out.println("Enter Number-1 :  "); 
+		   	        Number_1 =in.nextInt();
+		   	        
+		   	        System.out.println("Enter Number-2 :  "); 
+		   	        Number_2 =in.nextInt();
+    		
+	    			res=Number_1/Number_2;
+	    	
+		   			System.out.println("Result : "+res);
+		   		 }
+		    	
+		    	catch(ArithmeticException e)
+		    	 {
+		    	 	 System.out.println(e);
+		    	 }
+
+		    	finally
+		         {
+	    			 System.out.println("My code is safe from exception");
+		    	 }
+		    	
+		    	break;
+		    		
+		    	
+		    case 2 : 
+		    	try
+		     	 {
+		     		
+		    		System.out.println("Enter the number of elements you want to store : ");
+		    		size=in.nextInt();
+		    		
+		    		Array = new int[size];
+		    		
+		    		System.out.println("Enter the elements of the array : ");
+		    		
+		    		 for(i=0;i<size;i++)
+		    		  {
+		    			Array[i] = in.nextInt();
+		    	 	  }
+		    		 
+		    	    System.out.println("Array elements are :");
+		    		
+		    		 for(i=0;i<size;i++)
+		    		  {
+		    			System.out.print(Array[i]+" ");
+		    	 	  } 
+		    		
+		    		System.out.println("Enter the position of elements to be accessed : ");
+		    		
+		    		index = in.nextInt();
+		    		
+		    		if(index>size)
+		    		 {
+		    			throw new ArrayIndexOutOfBoundsException("Array Index is Out Of Bounds");
+		    		 }
+		    		else
+		    		{
+		    			System.out.println("Element at position "+index+" is "+Array[index]);
+		    		}
+		       	 }
+		       catch(ArrayIndexOutOfBoundsException e) 
+	     		 {
+	    			System.out.println(e);
+	     		 }
+		    	finally 
+		    	 {
+		    			System.out.println("Exception is cleared");
+		       	 }
+		    	break;
+		    	
+		       default : System.out.println("Invalid choice, Enter choice again "); 
+		   }	
+		  
+		  System.out.println("Do you want to continue y (yes) or n (no)");
+		     
+		  response = in.next();
+        }
+     
+	 while(response.equals("y") );
+	 
+    }
+}
