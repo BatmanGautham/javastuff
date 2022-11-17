@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+ class THROW2
+{
+static void check(int Age,int Weight)
+	{
+		if(Age>12 && Weight>40)
+		{
+			throw new ArithmeticException("Student is not eligible for registration");
+		}
+		else
+		{
+			System.out.println("\nStudent Age :"+Age);
+			System.out.println("Student weight : "+Weight);
+			System.out.println("\nStudent eligible");
+		}
+	}
+  public static void main(String[] args) 
+	{
+	  
+		int Age,Weight,n,i;
+		
+		
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("\nEnter number of Students : ");
+		n = in.nextInt();
+		
+		
+		for(i=1;i<=n;i++)
+		{
+		 System.out.println("\nStudent "+i);
+		 System.out.println("\nEnter Student Age : ");
+		 Age = in.nextInt();
+		
+	 	 System.out.println("Enter Student Weight : ");
+		 Weight = in.nextInt();
+		
+		
+		 //Registeration obj = new Registeration();
+		
+		 try
+		 {
+			check(Age,Weight);
+		 }
+		 catch(ArithmeticException e)
+		 {
+			System.out.println(e);
+		 }
+}
