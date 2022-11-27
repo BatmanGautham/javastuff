@@ -70,7 +70,7 @@ class Bank
 	 }
 	 
 	 
-     public void withdraw() throws InsufficientFundException,InvalidAmountException 
+    public void withdraw() throws InsufficientFundException,InvalidAmountException 
 	 {
 		System.out.print("Enter the amount to withdraw : ");
 		int amtdraw = sc.nextInt();
