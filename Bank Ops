@@ -1,0 +1,208 @@
+import java.util.Scanner;
+
+class InvalidAmountException extends Exception 
+{
+	InvalidAmountException(String msg) 
+	{
+		super(msg);
+	}
+}
+
+class InsufficientFundException extends Exception 
+{
+	InsufficientFundException(String msg) 
+	{
+		super(msg);
+	}
+}
+
+class Bank 
+{
+	String name;
+	int accountnum;
+    float balance;
+	
+	Scanner sc = new Scanner(System.in);
+
+	public void create(int X) 
+	 {
+		accountnum = X+1;
+		
+		System.out.println("\nAccount "+accountnum);
+		
+		System.out.print("Enter the name : ");
+		name = sc.nextLine();
+		
+		System.out.print("Enter the balance : ");
+		balance = sc.nextFloat();
+	 } 
+
+	public void display() 
+	 {
+		System.out.println("\nUser Details ");
+		System.out.println("Account number : " + accountnum);
+		System.out.println("Name of User : " + name);
+		System.out.println("Balance : " + balance);
+	 } 
+    
+    public void displayBalance()
+     {
+      System.out.println("Current Balance : " + balance);
+     }
+     
+	public void withdraw() throws InsufficientFundException,InvalidAmountException 
+	 {
+		System.out.print("Enter the amount to withdraw : ");
+		int amtdraw = sc.nextInt();
+		
+		 if(amtdraw > balance) 
+		  {
+        	throw new InsufficientFundException("\nInsufficient balance");
+		  }
+		 else if(amtdraw <= 0) 
+		  {
+			throw new InvalidAmountException("\nAmount is not valid");
+		  } 
+		else 
+		 {
+			balance = balance-amtdraw;
+			System.out.println("\nBalance amount : " + balance);
+		 }
+	 }
+
+  public void deposit() throws InvalidAmountException 
+   {
+	 System.out.print("Enter the amount to deposit : ");
+  	 int amtdepo = sc.nextInt();
+	 	
+	  if(amtdepo <= 0) 
+	   {
+		throw new InvalidAmountException("\nAmount is not valid !");
+	   } 
+	 else 
+	  {
+		balance = balance+amtdepo;
+		
+		System.out.println("\nBalance amount : " + balance);
+	  }
+	}
+}
+
+public class BankAPP 
+{
+  public static void main(String[] args) 
+	{
+	 int n,i,choice,acc1,acc2,acc3;
+	 String Response = "y";
+	 
+	 Scanner in = new Scanner(System.in);
+		
+	 System.out.print("\nEnter the number of accounts you want to enter : ");
+	  n = in.nextInt();
+	 
+	 Bank b[];
+	 b = new Bank[n];
+	 
+	  for( i=0; i<n; i++)
+	   {
+		System.out.println("\nEnter details");			
+		b[i] = new Bank();
+		b[i].create(i);
+		b[i].display();
+	   }
+
+	  while( Response.equalsIgnoreCase("y") )
+		{	
+		 System.out.print("\nOperations  : 1. Deposit, 2. Withdrawal, 3.search, 4.Exit\n\nEnter your choice : ");
+		 choice = in.nextInt();
+			
+		 switch(choice) 
+		  {
+		   case 1:				
+				   System.out.print("\nEnter the account number : ");
+				   acc1 = in.nextInt();
+				    
+				  	 for(i=0; i<n; i++) 
+					  {
+					   if(acc1 == b[i].accountnum) 
+					    {
+						  b[i].displayBalance();
+						}
+					  }
+					
+					for( i=0;i<n;i++)
+					 {
+						if(acc1 == b[i].accountnum)
+						 {
+						  try	
+						   {
+						    b[i].deposit();
+						   }
+						 catch(InvalidAmountException e) 
+						   {
+						    System.out.println(e);
+						   }
+						 }
+					 }
+									
+					break;
+
+			case 2:	
+			        	
+					System.out.print("Enter the account number : ");
+					acc2 = in.nextInt();
+					
+					 for(i=0; i<n; i++) 
+					   {
+					    if(acc2 == b[i].accountnum) 
+					     {
+						  b[i].displayBalance();
+						 }
+					   }
+					
+					
+						for(i=0; i<n; i++) 
+						 {
+						  if(acc2 == b[i].accountnum) 
+						   {
+							try 
+							 {
+							  b[i].withdraw();
+							 }
+						   catch(InsufficientFundException e) 
+							{
+							 System.out.println(e);
+							}	
+						   catch(InvalidAmountException e) 
+							{
+							 System.out.println(e);
+							}
+						  }
+						}
+					break;
+
+			case 3:				
+					System.out.print("\nEnter the account number to be searched : ");
+					acc3 = in.nextInt();
+					
+				 	 for(i=0; i<n; i++) 
+					  {
+					   if(acc3 == b[i].accountnum) 
+					    {
+						  b[i].display();
+						}
+					  }
+				  break;
+				  
+		    case 4: 
+		            System.out.print("\nProgram Ended");
+		            return;
+	       }
+				
+     System.out.print("\nPress 'y' to continue or 'n' : ");
+     Response = in.next();
+				
+		}
+
+	}
+}
