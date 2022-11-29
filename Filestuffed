@@ -1,0 +1,258 @@
+import java.util.Scanner;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+//import java.io.*;
+
+
+
+class FileSample3
+{
+ public static void main(String args[])
+  {
+   String content;
+   
+   Scanner in = new Scanner(System.in);
+   
+   File f1 = new File("Sample11.txt");
+   
+   System.out.println("Creating file ");
+   
+   try
+    {
+     if(f1.createNewFile() )
+      {
+        System.out.println("File Created Succesfully");
+        
+        
+        FileInputStream input1 = new FileInputStream(f1);
+        
+        //int character;
+        
+        System.out.println("Enter your File Data : ");
+  
+        /* while( (character = input.read()) != -1 )
+          {
+           System.out.println( (char)character );
+          }
+	
+	 */
+	 
+        //String content;
+     import java.util.Scanner;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+//import java.io.*;
+
+
+
+class FileSample3
+{
+ public static void main(String args[])
+  {
+   String content;
+   
+   Scanner in = new Scanner(System.in);
+   
+   File f1 = new File("Sample11.txt");
+   
+   System.out.println("Creating file ");
+   
+   try
+    {
+ 
+        System.out.println("Enter the content for the file");
+    
+        content = in.nextLine();
+
+  
+        
+        FileOutputStream F1 = new FileOutputStream(f1);
+        
+        F1.write(content.getBytes());
+        
+        System.out.println("Written Successfully !");
+        
+      }
+     
+     else
+      {
+       System.out.println("File already exsist !");
+      }
+    
+    }
+   catch(IOException e)
+    {
+     System.out.println("File Exsisting");
+     
+     e.printimport java.util.Scanner;
+
+imimport java.util.Scanner;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+//import java.io.*;
+
+
+
+class FileSample3
+{
+ public static void main(String args[])
+  {
+   String content;
+   
+   Scanner in = new Scanner(System.in);
+   
+   File f1 = new File("Sample11.txt");
+   
+   System.out.println("Creating file ");
+   
+   try
+    {
+ port java.io.File;
+import java.io.IOException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+//import java.io.*;
+
+
+
+class FileSample3
+{
+ public static void main(String args[])
+  {
+   String content;
+   
+   Scanner in = new Scanner(System.in);
+   
+   File f1 = new File("Sample11.txt");
+   
+   System.out.println("Creating file ");
+   
+   try
+    {
+     if(f1.createNewFile() )
+      {
+        System.out.println("File Created Succesfully");
+        
+        
+        FileInputStream input1 = new FileInputStream(f1);
+        
+        //int character;
+        
+        System.out.println("Enter your File Data : ");
+  
+        /* while( (character = input.read()) != -1 )
+          {
+StackTrace();
+    }
+    
+    
+    
+    
+   File f2 = new File("CopiedSample22.text");
+   
+   System.out.println("Creating Second file  ");
+   
+   //f2.getNaimport java.util.Scanner;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+//import java.io.*;
+
+
+
+class FileSample3
+{
+ public static void main(String args[])
+  {
+   String content;
+   
+   Scanner in = new Scanner(System.in);
+   
+   File f1 = new File("Sample11.txt");
+   
+   System.out.println("Creating file ");
+   
+   try
+    {
+     if(f1.createNewFile() )
+      {
+        System.out.println("File Created Succesfully");
+        
+        
+        FileInputStream input1 = new FileInputStream(f1);
+        
+        //int character;
+        
+        System.out.println("Enter your File Data : ");
+  
+        /* while( (character = input.read()) != -1 )
+          {
+me()
+   
+    try
+     {
+      if(f2.createNewFile() )
+       {
+         System.out.println("File Created Succesfully");
+       }
+     
+      else
+       {
+         System.out.println("File already exsist !");
+       }
+       
+       
+       System.out.println("Now we Copy the contents of First file to Second file");
+   
+  
+   	FileInputStream input2 = new FileInputStream(f1);
+   	
+   	
+   	
+   	FileOutputStream F2 = new FileOutputStream(f2,true);
+   	
+        
+   	f2.write(content.getBytes());
+   	
+   	/*
+   	FileInputStream IP=new FileInputStream(fi);
+   	
+        FileOutputStream NOP=new FileOutputStream(f2);
+        
+        
+        
+        */
+        
+   	System.out.println("Written Successfully !");
+   
+    
+      }
+    catch(IOException e)
+     {
+       System.out.println("File Exsisting");
+     
+       e.printStackTrace();
+     }    
+  }
+}
