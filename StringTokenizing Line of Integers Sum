@@ -1,0 +1,31 @@
+import java.util.StringTokenizer;
+
+import java.util.Scanner;
+
+public class StringTokenizingLineofIntegerSum
+{
+ public static void main(String args[])
+ {
+  String str;
+  int Tok,Sum=0;
+  
+  Scanner in = new Scanner(System.in);
+  
+  System.out.print("\nEnter your String : ");
+  str = in.nextLine();
+  
+  System.out.println("\nTokenizing\n**********\n ");
+  
+  StringTokenizer obj=new StringTokenizer(str);
+  
+   while(obj.hasMoreTokens())
+    {
+     Tok = Integer.parseInt(obj.nextToken());
+     System.out.println(Tok);
+     
+     Sum = Sum + Tok;
+    }
+  
+   System.out.println("\nSum is "+Sum+ "\n");
+  }
+}
