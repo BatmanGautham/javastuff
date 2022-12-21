@@ -1,0 +1,102 @@
+import java.util.Scanner;
+class Employee
+{
+String name;
+int age;
+String phoneNumber;
+String address;
+double salary;
+public Employee(String name, int age, String phoneNumber, String address, double
+salary) {
+this.name = name;
+this.age = age;
+this.phoneNumber = phoneNumber;
+this.address = address;
+this.salary = salary;
+}
+public void display()
+{
+System.out.println("Name : "+name+"\nAge : "+age+"\nPhoneNumber :
+"+phoneNumber+"\nAddress : "+address);
+}
+public void printSalary() {
+System.out.println("Salary : " + salary);
+}
+}
+class Officer extends Employee
+{
+String specialization;
+public Officer(String name, int age, String phoneNumber, String address, double
+salary, String specialization)
+{
+super(name,age,phoneNumber,address,salary);
+this.specialization= specialization;
+}
+void employeeDetails()
+{
+System.out.println("Displaying Officer details:");
+display();
+System.out.println("Specialization : "+specialization);
+printSalary();
+}
+}
+class Manager extends Employee
+{
+String department;
+public Manager(String name, int age, String phoneNumber, String address, double
+salary, String department)
+{
+super(name,age,phoneNumber,address,salary);
+this.department= department;
+}
+void employeeDetails()
+{
+System.out.println("Displaying Manager details:");
+display();
+System.out.println("Department : "+department);
+printSalary();
+}
+}
+public class InheritanceMain {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+Scanner sc=new Scanner(System.in);
+int age;
+double salary;
+String name,phoneNumber,address,specialization,department;
+System.out.println("Enter the details of the Officer:");
+System.out.println("Name:");
+name=sc.next();
+System.out.println("Age:");
+age=sc.nextInt();
+System.out.println("Phone Number:");
+phoneNumber=sc.next();
+System.out.println("Address:");
+address=sc.next();
+System.out.println("Salary:");
+salary=sc.nextDouble();
+System.out.println("Specialization:");
+specialization=sc.next();
+Officer offr=new
+Officer(name,age,phoneNumber,address,salary,specialization);
+offr.employeeDetails();
+System.out.println();
+System.out.println("Enter the details of the Manager:");
+System.out.println("Name:");
+name=sc.next();
+System.out.println("Age:");
+age=sc.nextInt();
+System.out.println("Phone Number:");
+phoneNumber=sc.next();
+System.out.println("Address:");
+address=sc.next();
+System.out.println("Salary:");
+salary=sc.nextDouble();
+System.out.println("Department:");
+department=sc.next();
+Manager mngr=new
+Manager(name,age,phoneNumber,address,salary,department);
+mngr.employeeDetails();
+}
+}
+
