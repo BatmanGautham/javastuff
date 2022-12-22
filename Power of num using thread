@@ -1,0 +1,74 @@
+// Random number cube square thread
+
+
+import java.util.Random;
+import java.util.Scanner;
+class thread1 extends Thread
+{
+int limit;
+public void run()
+{
+for(int i=0;i<limit;i++)
+{
+Random r=new Random();
+int n=r.nextInt(100);
+System.out.println("Random Number : "+n);
+if(n%2==0)
+{
+thread2 t2=new thread2(n);
+t2.start();
+}
+else
+{
+thread3 t3=new thread3(n);
+t3.start();
+}
+try
+{
+Thread.sleep(1000);
+}
+catch(Exception e)
+{
+System.out.println(e);
+}
+}
+}
+}
+class thread2 extends Thread
+{
+int n;
+thread2(int n)
+{
+this.n=n;
+}
+public void run()
+{
+System.out.println("Square of "+n+" : "+n*n);
+}
+}
+class thread3 extends Thread
+{
+int n;
+thread3(int n)
+{
+this.n=n;
+}
+public void run()
+{
+System.out.println("Cube of "+n+" : "+n*n*n);
+}
+
+}
+public class MultiThreadProgram {
+
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+thread1 t1=new thread1();
+System.out.println("Enter No of times to generate random number : ");
+t1.limit=sc.nextInt();
+t1.start();
+
+
+}
+
+}
