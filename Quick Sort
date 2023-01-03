@@ -1,0 +1,71 @@
+import java.util.Scanner;
+public class Quicksort {
+String ar[];int l;
+public static void main(String args[]) {
+Scanner in=new Scanner(System.in);
+Quicksort s=new Quicksort();
+
+int size,i;
+String name[]=new String[20];
+ System.out.println("Enter the number of elements");
+size=in.nextInt();
+for(i=0;i<size;i++) {
+System.out.println("Enter name");
+name[i]=in.next();
+}
+s.sort(name,size);
+
+
+System.out.println("Sorted Array");
+for (i=0;i<size-1;i++) {
+         System.out.print(name[i]+" , ");
+         System.out.print(" ");
+}
+System.out.println(name[i]);
+}
+
+void sort(String array[],int size) {
+       if (array == null || array.length == 0) {
+           return ;
+       }
+       else{
+        this.ar = array;
+        this.l = size;
+       quick(0, l - 1);
+       }        
+   }
+
+void quick(int f,int l) {
+int i=f,j=l;
+
+String pivot=this.ar[f+(l-f)/2];
+while (i <= j) {
+        while (this.ar[i].compareToIgnoreCase(pivot) <0){
+            i++;
+        }
+
+        while (this.ar[j].compareToIgnoreCase(pivot) > 0) {
+            j--;
+        }
+
+        if (i <= j) {
+            exchange(i, j);
+            i++;
+            j--;
+        }
+    }
+    if (f < j) {
+        quick(f, j);
+    }
+    if (i < l) {
+        quick(i, l);
+    }
+}
+
+
+void exchange(int i,int j) {
+String temp = this.ar[i];
+    this.ar[i] = this.ar[j];
+    this.ar[j] = temp;
+}
+}
