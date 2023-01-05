@@ -1,0 +1,226 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Calculator implements ActionListener
+{
+	String oper;
+	int n1,n2;
+	
+	JFrame f;
+	JTextField tf;
+	
+	JButton b0,b1,b2,b3,b4,b5,b6,b7,b8,b9;
+	JButton addi,subt,mult,divi,equals,clr;
+	JPanel p;
+	
+	public Calculator()
+	{
+	 f = new JFrame("THE CALCULATOR ");
+	 p = new JPanel();
+	 tf = new JTextField(20);
+	 
+	 tf.setBounds(100,100,200,30);
+	 p.add(tf);
+	 
+	 b0=new JButton("0");
+	 b1=new JButton("1");
+	 b2=new JButton("2");
+	 b3=new JButton("3");
+	 b4=new JButton("4");
+	 b5=new JButton("5");
+	 b6=new JButton("6");
+	 b7=new JButton("7");
+	 b8=new JButton("8");
+	 b9=new JButton("9");
+	 
+	 addi=new JButton("+");
+	 subt=new JButton("-");
+	 mult=new JButton("*");
+	 divi=new JButton("/");
+	 
+	 clr=new JButton("C");
+	 equals = new JButton("=");
+	 
+	 b0.setBounds(100,230,50,30);
+	 b1.setBounds(100,140,50,30);
+	 b2.setBounds(150,140,50,30);
+	 b3.setBounds(200,140,50,30);
+	 addi.setBounds(250,140,50,30);
+	 
+	 b4.setBounds(100,170,50,30);
+	 b5.setBounds(150,170,50,30);
+	 b6.setBounds(200,170,50,30);
+	 subt.setBounds(250,170,50,30);
+	 
+	 b7.setBounds(100,200,50,30);
+	 b8.setBounds(150,200,50,30);
+	 b9.setBounds(200,200,50,30);
+	 mult.setBounds(250,200,50,30);
+
+	 clr.setBounds(150,230,50,30);
+	 equals.setBounds(200,230,50,30);
+	 divi.setBounds(250,230,50,30);
+	 
+	 p.add(b0);
+	 p.add(b1);
+	 p.add(b2);
+	 p.add(b3);
+	 p.add(b4);
+	 p.add(b5);
+	 p.add(b6);
+	 p.add(b7);
+	 p.add(b8);
+	 p.add(b9);
+	 
+	 p.add(addi);
+	 p.add(subt);
+	 p.add(mult);
+	 p.add(divi);
+	 
+	 p.add(clr);
+	 p.add(equals);
+	 
+	 b0.addActionListener(this);
+	 b1.addActionListener(this);
+	 b2.addActionListener(this);
+	 b3.addActionListener(this);
+	 b4.addActionListener(this);
+	 b5.addActionListener(this);
+	 b6.addActionListener(this);
+	 b7.addActionListener(this);
+	 b8.addActionListener(this);
+	 b9.addActionListener(this);
+	 addi.addActionListener(this);
+	 mult.addActionListener(this);
+	 subt.addActionListener(this);
+	 divi.addActionListener(this);
+	 clr.addActionListener(this);
+	 equals.addActionListener(this);
+	 
+	 p.setLayout(null);
+	 
+	 f.setContentPane(p);
+	 f.setSize(420,420);
+	 f.setVisible(true);
+	}
+	
+	
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==b0)
+		 {
+			 tf.setText( tf.getText()+b0.getText() );
+	 	 }
+		else if(e.getSource()==b1)
+		 {
+			tf.setText(tf.getText()+b1.getText());
+		 }
+		else if(e.getSource()==b2)
+		 {
+			tf.setText(tf.getText()+b2.getText());
+		 }
+		else if(e.getSource()==b3)
+		 {
+			tf.setText(tf.getText()+b3.getText());
+		 }
+		else if(e.getSource()==b4)
+		 {
+			tf.setText(tf.getText()+b4.getText());
+		 }
+		else if(e.getSource()==b5)
+		 {
+			tf.setText(tf.getText()+b5.getText());
+		 }
+		else if(e.getSource()==b6)
+		 {
+			tf.setText(tf.getText()+b6.getText());
+		 }
+		else if(e.getSource()==b7)
+		 {
+			tf.setText(tf.getText()+b7.getText());
+		 }
+		else if(e.getSource()==b8)
+		 {
+			tf.setText(tf.getText()+b8.getText());
+		 }
+		else if(e.getSource()==b9)
+		 {
+			tf.setText(tf.getText()+b9.getText());
+		 }
+		
+		else if(e.getSource()==addi)
+		 {
+			n1=Integer.parseInt(tf.getText());
+			oper="+";
+			tf.setText("");
+		 }
+		else if(e.getSource()==subt)
+		 {
+			n1=Integer.parseInt(tf.getText());
+			oper="-";
+			tf.setText("");
+		 }
+		else if(e.getSource()==mult)
+		 {
+			n1=Integer.parseInt(tf.getText());
+			oper="x";
+			tf.setText("");
+		 }
+		else if(e.getSource()==divi)
+		 {
+			n1=Integer.parseInt(tf.getText());
+			oper="/";
+			tf.setText("");
+		 }
+		else if(e.getSource()==equals)
+		 {
+			n2=Integer.parseInt(tf.getText());
+			
+		    float r = Calc(n1,oper,n2);
+		   
+		   tf.setText(n1+" "+oper+" "+n2+" = "+r);
+		 }
+		else if(e.getSource()==clr)
+		 {
+			tf.setText("");
+		 }
+     }
+	
+	float Calc(int a,String optr,int b)
+	 {
+	  float result=0;
+		
+		switch(optr) 
+		 {
+		  case "+":result=a+b;
+		  		   break;
+		
+		  case "-":result=a-b;
+		  		   break;
+		
+		  case "*":result=a*b;
+		  		   break;
+		
+		  case "/":
+			  
+			  try
+			   {
+				   result=(float)a/b;
+			   }
+			  catch(ArithmeticException e)
+			  {
+				  System.out.println(e);
+			  }
+		  	  break;
+		 }
+		return result;
+	 }
+   
+	
+  public static void main(String[] args) 
+	{
+		Calculator cal = new Calculator();
+	}
+}
